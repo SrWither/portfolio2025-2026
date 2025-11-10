@@ -1,0 +1,144 @@
+---
+import { Icon } from "astro-icon/components";
+const bio = {
+  name: "Fadel Jachuf",
+  role: "Software Developer & Hardware Enthusiast",
+  description: `
+    I'm an enthusiastic developer with a passion for low-level systems programming, procedural design, and electronics.
+    I love exploring the intersection of software and hardware, creating innovative solutions that blend both worlds.
+    When I'm not coding, I'm creating digital art with Blender or reading about the latest advancements in AI.
+  `,
+  passions: [
+    {
+      icon: "computer",
+      title: "Web Development",
+      text: "Building performant and scalable web applications.",
+    },
+    {
+      icon: "palette",
+      title: "Rendering & Digital Art",
+      text: "Creating stunning visuals with Blender.",
+    },
+    {
+      icon: "gear",
+      title: "Electronics",
+      text: "Building circuits and creating emulators of my own architecture.",
+    },
+    {
+      icon: "floppy-disk",
+      title: "Low-Level Programming",
+      text: "Creating my own parts of an OS and exploring systems programming.",
+    },
+  ],
+  stack: [
+    "Rust",
+    "TypeScript",
+    "Vue",
+    "SurrealDB",
+    "Blender",
+    "FreeBSD",
+    "C",
+    "C++",
+  ],
+};
+---
+
+<section
+  class="relative py-40 bg-white dark:bg-black text-black dark:text-white"
+>
+  <!-- Fondo -->
+  <div class="absolute inset-0 bg-white dark:bg-black"></div>
+
+  <!-- Decoración sutil -->
+  <div
+    class="absolute -top-40 -right-40 w-[600px] h-[600px] bg-neutral-200/10 dark:bg-white/5 rounded-full blur-3xl"
+  >
+  </div>
+  <div class="relative z-10 max-w-6xl mx-auto px-8 sm:px-6 lg:px-0 space-y-48">
+    <!-- Introducción -->
+    <div class="flex flex-col lg:flex-row items-center gap-20">
+      <div
+        class="sr relative w-64 h-64 lg:w-80 lg:h-80 rounded-full overflow-hidden shadow-[0_0_60px_-15px_rgba(0,0,0,0.3)] dark:shadow-[0_0_60px_-15px_rgba(255,255,255,0.1)]"
+      >
+        <img
+          src="/images/avatar.jpg"
+          alt="Profile picture"
+          class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700"
+        />
+      </div>
+
+      <div class="text-center lg:text-left max-w-xl px-4 sm:px-0">
+        <h2 class="sr text-5xl font-extrabold mb-6 tracking-tight">About Me</h2>
+        <h3
+          class="sr text-xl font-medium text-gray-700 dark:text-gray-400 mb-10"
+        >
+          {bio.role}
+        </h3>
+        <p class="sr text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+          {bio.description}
+        </p>
+      </div>
+    </div>
+
+    <!-- Passions -->
+    <div>
+      <h3 class="sr text-3xl font-bold mb-16 text-center tracking-tight">
+        Passions
+      </h3>
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto px-4 sm:px-0"
+      >
+        {
+          bio.passions.map((item) => (
+            <div class="sr">
+              <div class=" group relative p-6 rounded-3xl bg-linear-to-br from-neutral-100/80 via-neutral-200/60 to-neutral-300/40 dark:from-neutral-900/70 dark:via-neutral-800/60 dark:to-neutral-700/40 shadow-lg hover:shadow-[0_20px_60px_-10px_rgba(0,0,0,0.2)] dark:hover:shadow-[0_20px_60px_-10px_rgba(255,255,255,0.05)] transition-all duration-500 hover:-translate-y-2">
+                <div class="text-4xl mb-5">
+                  <Icon name={item.icon} />
+                </div>
+                <h4 class="text-2xl font-semibold mb-3">{item.title}</h4>
+                <p class="text-gray-700 dark:text-gray-300">{item.text}</p>
+                <div class="absolute inset-0 bg-linear-to-tr from-white/20 to-transparent dark:from-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- Tech Stack -->
+    <div class="text-center">
+      <h3 class="sr text-3xl font-bold mb-16 tracking-tight">Tech Stack</h3>
+      <div class="flex flex-wrap justify-center gap-6 px-4 sm:px-0">
+        {
+          bio.stack.map((tech) => (
+            <div class="sr">
+              <div
+                class="relative px-6 py-3 rounded-full text-sm font-semibold tracking-wide text-gray-800 dark:text-gray-200
+              bg-linear-to-tr from-neutral-100/70 via-neutral-200/40 to-neutral-300/30 dark:from-neutral-900/70 dark:via-neutral-800/50 dark:to-neutral-700/40 backdrop-blur-md shadow-inner
+              hover:shadow-[0_0_20px_5px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_0_20px_5px_rgba(255,255,255,0.1)]
+              hover:-translate-y-0.5 transition-all duration-300"
+              >
+                {tech}
+                <span class="absolute inset-0 rounded-full bg-linear-to-tr from-white/10 to-transparent dark:from-white/5 opacity-0 hover:opacity-100 transition-all duration-300" />
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- Quote -->
+    <div
+      class="max-w-3xl mx-auto text-center border-t border-zinc-200 dark:border-zinc-800 pt-24 px-4 sm:px-0"
+    >
+      <blockquote
+        class="sr text-2xl italic text-gray-700 dark:text-gray-300 leading-relaxed"
+      >
+        “Programming is my way of creating my universe.”
+      </blockquote>
+      <p class="sr mt-5 text-sm text-gray-500 dark:text-gray-500">
+        — Fadel Jachuf
+      </p>
+    </div>
+  </div>
+</section>

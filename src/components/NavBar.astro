@@ -1,0 +1,67 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<!-- NAVBAR DESKTOP -->
+<nav class="hidden md:flex px-8 py-4 border-b border-zinc-200 dark:border-zinc-800 backdrop-blur-md bg-white/60 dark:bg-black/60 sticky top-0 z-50 shadow-sm justify-between items-center">
+  <div class="text-2xl font-bold tracking-tight text-black dark:text-white">
+    SrWither
+  </div>
+
+  <!-- Links -->
+  <ul class="flex gap-8 text-black dark:text-gray-200 font-medium">
+    <li><a href="/" class="hover:text-gray-500 transition-colors">Home</a></li>
+    <li><a href="/about" class="hover:text-gray-500 transition-colors">About</a></li>
+    <li><a href="/projects" class="hover:text-gray-500 transition-colors">Projects</a></li>
+    <li><a href="/social" class="hover:text-gray-500 transition-colors">Social</a></li>
+    <li><a href="https://blog.srwither.com.ar" target="_blank" rel="noopener noreferrer" class="hover:text-gray-500 transition-colors">Blog</a></li>
+  </ul>
+
+  <!-- Botón de tema -->
+  <button
+    id="theme-toggle"
+    class="w-10 h-10 flex items-center justify-center rounded-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-black hover:scale-110 transition-transform duration-300 shadow-sm hover:shadow-md"
+    aria-label="Toggle theme"
+  >
+    <div class="flex items-center justify-center w-full h-full">
+      <div class="hidden dark:flex items-center justify-center">
+        <Icon name="moon" class="w-5 h-5" />
+      </div>
+      <div class="flex dark:hidden items-center justify-center">
+        <Icon name="sun" class="w-5 h-5" />
+      </div>
+    </div>
+  </button>
+</nav>
+
+<nav class="flex flex-col md:hidden px-4 py-4 border-b border-zinc-200 dark:border-zinc-800 backdrop-blur-md bg-white/60 dark:bg-black/60 sticky top-0 z-50 gap-2">
+  <div class="flex justify-between items-center w-full">
+    <div class="text-2xl font-bold tracking-tight text-black dark:text-white text-center flex-1">
+      SrWither
+    </div>
+
+    <button
+      id="theme-toggle-mobile"
+      class="w-10 h-10 flex items-center justify-center rounded-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-black hover:scale-110 transition-transform duration-300 shadow-sm hover:shadow-md"
+      aria-label="Toggle theme"
+    >
+      <div class="flex items-center justify-center w-full h-full">
+        <div class="hidden dark:flex items-center justify-center">
+          <Icon name="moon" class="w-5 h-5" />
+        </div>
+        <div class="flex dark:hidden items-center justify-center">
+          <Icon name="sun" class="w-5 h-5" />
+        </div>
+      </div>
+    </button>
+  </div>
+
+  <!-- Segunda línea: links -->
+  <ul class="flex justify-center gap-6 text-black dark:text-gray-200 font-medium">
+    <li><a href="/" class="hover:text-gray-500 transition-colors">Home</a></li>
+    <li><a href="/about" class="hover:text-gray-500 transition-colors">About</a></li>
+    <li><a href="/projects" class="hover:text-gray-500 transition-colors">Projects</a></li>
+    <li><a href="/social" class="hover:text-gray-500 transition-colors">Social</a></li>
+    <li><a href="https://blog.srwither.com.ar" target="_blank" rel="noopener noreferrer" class="hover:text-gray-500 transition-colors">Blog</a></li>
+  </ul>
+</nav>

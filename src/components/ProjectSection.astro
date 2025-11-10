@@ -1,0 +1,137 @@
+---
+type Project = {
+  title: string;
+  description: string;
+  image?: string;
+  github?: string;
+  demo?: string;
+  stack: string[];
+};
+
+
+const projects: Project[] = [
+  {
+    title: "DiscordBSD",
+    description: `
+      Cliente de Discord para FreeBSD construido con Electron y TypeScript — ofreciendo una experiencia nativa y ligera en sistemas Unix.
+    `,
+    image: "/images/projects/discordbsd.png",
+    github: "https://github.com/SrWither/discordbsd",
+    stack: ["Electron", "TypeScript", "FreeBSD"],
+  },
+  {
+    title: "MeteorNvim",
+    description: `
+      Configuración de Neovim liviana y fácil de usar — optimizada para productividad y con soporte para plugins esenciales.
+    `,
+    image: "/images/projects/meteornvim.png",
+    github: "https://github.com/SrWihter/meteornvim",
+    stack: ["Neovim", "Lua", "Vimscript"],
+  },
+  {
+    title: "OpenSpeedRun",
+    description: `
+      Alternativa a LiveSplit para Unix hecha en Rust y EGUI — perfecta para speedrunners que quieren un temporizador eficiente y multiplataforma.
+    `,
+    image: "/images/projects/openspeedrun.png",
+    github: "https://github.com/SrWither/openspeedrun",
+    stack: ["Rust", "EGUI", "Unix"],
+  },
+  {
+    title: "GuiFetch",
+    description: `
+      System information tool with a graphical interface, built with C++ and Qt — providing a sleek way to display system stats on Unix-like systems.
+    `,
+    image: "/images/projects/guifetch.png",
+    github: "https://github.com/SrWither/guifetch",
+    stack: ["C++", "Qt", "Unix"],
+  }
+];
+
+---
+
+<section class="relative py-32 bg-white dark:bg-black text-black dark:text-white">
+  <!-- Fondo -->
+  <div class="absolute inset-0 bg-white dark:bg-black"></div>
+
+  <!-- Decoración sutil -->
+  <div
+    class="absolute -top-40 -right-40 w-[600px] h-[600px] bg-neutral-200/10 dark:bg-white/5 rounded-full blur-3xl"
+  >
+  </div>
+  <div class="relative z-10 max-w-7xl mx-auto px-8 sm:px-6 lg:px-0 space-y-24">
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <h2 class="sr text-5xl font-extrabold tracking-tight mb-4">Projects</h2>
+      <p class="sr text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
+        A selection of systems, frameworks, and creative works that reflect my passion for performance, design, and experimentation.
+      </p>
+    </div>
+
+    <!-- Project grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+      {projects.map((project) => (
+        <div class="sr">
+          <div class=" group relative rounded-3xl overflow-hidden bg-linear-to-br from-neutral-100/70 via-neutral-200/40 to-neutral-300/20 dark:from-neutral-900/70 dark:via-neutral-800/50 dark:to-neutral-700/40 shadow-lg hover:shadow-[0_20px_60px_-10px_rgba(0,0,0,0.2)] dark:hover:shadow-[0_20px_60px_-10px_rgba(255,255,255,0.05)]  hover:-translate-y-2 transition-all duration-500">
+            <!-- Imagen opcional -->
+            {project.image && (
+              <div class="w-full h-64 overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700"
+                />
+              </div>
+            )}
+
+            <!-- Contenido -->
+            <div class="p-8 space-y-5">
+              <h3 class="text-2xl font-bold tracking-tight">{project.title}</h3>
+              <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                {project.description}
+              </p>
+
+              <!-- Stack -->
+              <div class="flex flex-wrap gap-2 pt-2">
+                {project.stack.map((tech) => (
+                  <span
+                    class="px-4 py-1 rounded-full text-sm font-medium bg-linear-to-tr from-neutral-200/60 to-neutral-300/40 dark:from-neutral-800/70 dark:to-neutral-700/50 text-gray-800 dark:text-gray-200"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              <!-- Links -->
+              <div class="flex gap-4 pt-6">
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-sm font-semibold uppercase tracking-wide border border-zinc-300 dark:border-zinc-700 rounded-full px-5 py-2 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors duration-300"
+                  >
+                    GitHub
+                  </a>
+                )}
+                {project.demo && (
+                  <a
+                    href={project.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-sm font-semibold uppercase tracking-wide border border-zinc-300 dark:border-zinc-700 rounded-full px-5 py-2 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors duration-300"
+                  >
+                    Live Demo
+                  </a>
+                )}
+              </div>
+            </div>
+
+            <!-- Overlay decorativo -->
+            <div class="absolute inset-0 bg-linear-to-tr from-white/10 to-transparent dark:from-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
